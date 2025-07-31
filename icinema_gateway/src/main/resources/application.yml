@@ -1,0 +1,47 @@
+server:
+  port: 5050
+spring:
+  application:
+    name: GatewayMS
+  cloud:
+    discovery:
+      enabled: true
+    consul:
+      discovery:
+        hostname: localhost
+        enabled: true
+      host: localhost
+    gateway:
+      routes:
+      - id: TheatreMS
+        uri: lb://TheatreMS
+        predicates:
+        - Path=/theatres/**
+      - id: MovieMS
+        uri: lb://MovieMS
+        predicates:
+        - Path=/movies/**
+      - id: SeatingMS
+        uri: lb://SeatingMS
+        predicates:
+        - Path=/seating/**
+      - id: UserMS
+        uri: lb://UserMS
+        predicates:
+        - Path=/sec/**
+      - id: BookingMS
+        uri: lb://BookingMS
+        predicates:
+        - Path=/**,/user/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "http://localhost:3000"
+            allowed-methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            allow-credentials: true
+      default-filters:
+      - DedupeResponseHeader=Acess-Control-Allow-Origin Access-Control-Allow-Credentials

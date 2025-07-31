@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: MoviesMS
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+        enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/MoviesDB
+    username: root
+    password: Bhupendra@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+#server:
+#  port: 9100
+        

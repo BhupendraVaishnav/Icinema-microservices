@@ -1,0 +1,11 @@
+server:
+  port: 9300
+spring:
+  application:
+    name: SeatingMS
+  datasource:
+    url: jdbc:mysql://localhost/icinema_seating
+    username: root
+    password: Bhupendra@123
+  jpa:
+    show-sql: true

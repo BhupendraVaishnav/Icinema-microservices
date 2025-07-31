@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: PaymentMS
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+      config:
+        fail-fast: false
+        enabled: true
+        prefixes: config
+        defaultContext: application
+        data-key: data
+        profileSeparator: '::'
+        format: YAML
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/MoviesDB
+    username: root
+    password: Bhupendra@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 9400

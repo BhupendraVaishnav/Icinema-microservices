@@ -1,0 +1,14 @@
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      movieCircuitBreaker:
+        registerHealthIndicator: true
+        failure-rate-threshold: 30
+        wait-duration-in-open-state: 60s
+        sliding-window-type: time-based
+        sliding-window-size: 30
+        permitted-number-of-calls-in-half-open-state: 2
+        automatic-transition-from-open-to-half-open-enabled: true
+        minimum-number-of-calls: 10
